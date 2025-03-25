@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos de Restaurante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+        }
+        h1 {
+            text-align: center;
+        }
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .menu-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu, .cart {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .menu-item, .cart-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .total, .payment-options {
+            font-size: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .payment-options button {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Restaurante - Menú</h1>
+
+    <!-- Sección de Hamburguesas -->
+    <div class="menu-section">
+        <h2>Hamburguesas</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <h3>Lotzo</h3>
+                <p>$26.000</p>
+                <button onclick="addToCart('Hamburguesa Clásica', 26.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Super</h3>
+                <p>$ 23.000</p>
+                <button onclick="addToCart('Hamburguesa BBQ', 23.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Especial</h3>
+                <p>$17.000</p>
+                <button onclick="addToCart('Hamburguesa Vegana', 17.00)">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Perras -->
+    <div class="menu-section">
+        <h2>Perras</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <h3>Grande</h3>
+                <p>$18.000</p>
+                <button onclick="addToCart('Perra Especial', 18.000)">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Perros -->
+    <div class="menu-section">
+        <h2>Perros</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <h3>Lotzo</h3>
+                <p>$22.000</p>
+                <button onclick="addToCart('Perro Caliente', 22.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Super</h3>
+                <p>$20.000</p>
+                <button onclick="addToCart('Perro con Guacamole', 20.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Grande</h3>
+                <p>$17.000</p>
+                <button onclick="addToCart('Perro con Queso', 17.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Pequeño</h3>
+                <p>$14.000</p>
+                <button onclick="addToCart('Perro Mexicano', 14.000)">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Chuzos -->
+    <div class="menu-section">
+        <h2>Chuzos</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <h3>Chuzo de Pollo</h3>
+                <p>$22.000</p>
+                <button onclick="addToCart('Chuzo de Pollo', 22.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Chuzo de Cerdo</h3>
+                <p>$22.000</p>
+                <button onclick="addToCart('Chuzo de Carne', 22.000)">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Bebidas -->
+    <div class="menu-section">
+        <h2>Bebidas</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <h3>Gaseosa Personal</h3>
+                <p>$4.000</p>
+                <button onclick="addToCart('Refresco', 4.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Gaseosa 1.5 Lts</h3>
+                <p>$8.000</p>
+                <button onclick="addToCart('Jugo Natural', 8.000)">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Adiciones -->
+    <div class="menu-section">
+        <h2>Adiciones</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <h3>Porcion Papas</h3>
+                <p>$7.000</p>
+                <button onclick="addToCart('Papas Fritas', 7.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Porcion Ensalada</h3>
+                <p>$6.000</p>
+                <button onclick="addToCart('Queso Rallado', 6.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Carne Tradicional</h3>
+                <p>$5.000</p>
+                <button onclick="addToCart('Guacamole', 5.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Queso</h3>
+                <p>$5.000</p>
+                <button onclick="addToCart('Salsa Picante', 5.000)">Agregar al carrito</button>
+            </div>
+            <div class="menu-item">
+                <h3>Tocineta Premium</h3>
+                <p>$4.000</p>
+                <button onclick="addToCart('Aguacate', 4.000)">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Carrito y Método de Pago -->
+    <div class="cart">
+        <h2>Tu carrito</h2>
+        <ul id="cart-list">
+            <!-- Items del carrito se agregarán aquí -->
+        </ul>
+        <div class="total">
+            <p>Total: $<span id="total-price">0.00</span></p>
+        </div>
+
+        <!-- Opciones de pago -->
+        <div class="payment-options">
+            <p>Selecciona el método de pago:</p>
+            <button onclick="selectPayment('Transferencia')">Transferencia Bancaria</button>
+            <button onclick="selectPayment('Efectivo')">Pago en Efectivo</button>
+        </div>
+
+        <button onclick="placeOrder()">Realizar pedido</button>
+    </div>
+
+    <script>
+        let cart = [];
+        let totalPrice = 0;
+        let paymentMethod = '';
+
+        function addToCart(itemName, itemPrice) {
+            cart.push({ name: itemName, price: itemPrice });
+            totalPrice += itemPrice;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartList = document.getElementById('cart-list');
+            cartList.innerHTML = '';
+
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.classList.add('cart-item');
+                li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                cartList.appendChild(li);
+            });
+
+            const totalElement = document.getElementById('total-price');
+            totalElement.textContent = totalPrice.toFixed(2);
+        }
+
+        function selectPayment(method) {
+            paymentMethod = method;
+            alert(`Método de pago seleccionado: ${paymentMethod}`);
+        }
+
+        function placeOrder() {
+            if (cart.length === 0) {
+                alert('Tu carrito está vacío. Agrega algunos productos antes de realizar un pedido.');
+                return;
+            }
+
+            if (paymentMethod === '') {
+                alert('Por favor, selecciona un método de pago antes de realizar el pedido.');
+                return;
+            }
+
+            alert(`Tu pedido ha sido realizado. Total: $${totalPrice.toFixed(2)}. Método de pago: ${paymentMethod}.`);
+            cart = [];
+            totalPrice = 0;
+            paymentMethod = '';
+            updateCart();
+        }
+    </script>
+
+</body>
+</html>
